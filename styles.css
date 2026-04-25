@@ -491,3 +491,44 @@ body {
     font-size: 1.5rem;
   }
 }
+.counter-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 25px;
+    margin: 40px auto;
+    width: 85%;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.counter-card:hover {
+    transform: translateY(-5px);
+}
+
+.counter-content i {
+    font-size: 28px;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+}
+
+.counter-text {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.counter-display img {
+    filter: brightness(1.1) drop-shadow(0 0 10px rgba(0, 198, 255, 0.4));
+    border-radius: 6px;
+    max-width: 100%;
+}
