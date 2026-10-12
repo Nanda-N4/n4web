@@ -532,3 +532,25 @@ body {
     border-radius: 6px;
     max-width: 100%;
 }
+
+/* ===== N4 PRO POLISH (unified theme pass) ===== */
+.download-btn { position: relative; overflow: hidden; }
+.download-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform: skewX(-20deg);
+  animation: n4-shine 3.4s ease-in-out infinite;
+}
+.logo-container .site-logo { animation: n4-float 4s ease-in-out infinite; }
+.grid-item { border-top: 2px solid transparent; }
+.grid-item:hover { border-top-color: var(--primary-gold); }
+.section-heading h3 { letter-spacing: 0.5px; }
+.step { transition: transform 0.3s cubic-bezier(0.22,0.9,0.28,1); }
+.step:hover { transform: translateX(6px); }
+.step:hover .step-number { box-shadow: 0 0 0 8px rgba(255,215,0,0.12); }
+.main-header { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(10,10,10,0.88); }

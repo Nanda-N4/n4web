@@ -1,0 +1,287 @@
+/* ============================================================
+ * N4 Web — Shared Design System (gold / black)
+ * ------------------------------------------------------------
+ * Every page links this file FIRST, then its own stylesheet:
+ *   <link rel="stylesheet" href="/theme.css">
+ * Page stylesheets use these tokens so the whole site shares
+ * one visual language.
+ * ============================================================ */
+
+:root {
+  /* Brand */
+  --n4-gold: #FFD700;
+  --n4-gold-deep: #DAA520;
+  --n4-gold-soft: rgba(255, 215, 0, 0.12);
+  --n4-gold-border: rgba(255, 215, 0, 0.28);
+  --n4-red: #D32F2F;
+  --n4-red-soft: rgba(211, 47, 47, 0.14);
+
+  /* Surfaces */
+  --n4-black: #0A0A0A;
+  --n4-surface: #141414;
+  --n4-surface-2: #1C1C1C;
+  --n4-surface-3: #242424;
+
+  /* Text */
+  --n4-text: #EDEDED;
+  --n4-muted: #A9A9A9;
+  --n4-faint: #6E6E6E;
+
+  /* Shape + motion */
+  --n4-radius: 16px;
+  --n4-radius-sm: 10px;
+  --n4-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --n4-shadow-gold: 0 8px 28px rgba(255, 215, 0, 0.16);
+  --n4-ease: cubic-bezier(0.22, 0.9, 0.28, 1);
+  --n4-font: 'Pyidaungsu', 'Noto Sans Myanmar', sans-serif;
+}
+
+/* ---------- base ---------- */
+html { scroll-behavior: smooth; }
+
+body.n4 {
+  font-family: var(--n4-font);
+  background: var(--n4-black);
+  color: var(--n4-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.n4 a { color: var(--n4-gold); }
+.n4 ::selection { background: var(--n4-gold); color: #0A0A0A; }
+
+/* ---------- slim sub-page header ---------- */
+.n4-subheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  background: rgba(10, 10, 10, 0.92);
+  border-bottom: 1px solid var(--n4-gold-border);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.n4-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--n4-gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 14px;
+  border: 1px solid var(--n4-gold-border);
+  border-radius: 999px;
+  background: var(--n4-gold-soft);
+  transition: transform 0.25s var(--n4-ease), background 0.25s, box-shadow 0.25s;
+  white-space: nowrap;
+}
+
+.n4-back:hover {
+  transform: translateX(-3px);
+  background: rgba(255, 215, 0, 0.2);
+  box-shadow: var(--n4-shadow-gold);
+}
+
+.n4-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--n4-gold);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.n4-brand img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.45));
+}
+
+/* ---------- buttons ---------- */
+.n4-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s var(--n4-ease), box-shadow 0.25s;
+  font-family: var(--n4-font);
+}
+
+.n4-btn-gold {
+  background: linear-gradient(135deg, var(--n4-gold) 0%, var(--n4-gold-deep) 100%);
+  color: #0A0A0A;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.32);
+}
+
+.n4-btn-gold:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.45);
+}
+
+.n4-btn-gold:active { transform: translateY(0) scale(0.99); }
+
+/* shine sweep on gold buttons */
+.n4-btn-gold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-20deg);
+  animation: n4-shine 3.2s ease-in-out infinite;
+}
+
+.n4-btn-ghost {
+  background: var(--n4-gold-soft);
+  color: var(--n4-gold);
+  border: 1px solid var(--n4-gold-border);
+}
+
+.n4-btn-ghost:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 215, 0, 0.2);
+  box-shadow: var(--n4-shadow-gold);
+}
+
+/* ---------- cards ---------- */
+.n4-card {
+  background: linear-gradient(160deg, var(--n4-surface-2), var(--n4-surface));
+  border: 1px solid var(--n4-gold-border);
+  border-radius: var(--n4-radius);
+  box-shadow: var(--n4-shadow);
+  transition: transform 0.3s var(--n4-ease), box-shadow 0.3s, border-color 0.3s;
+}
+
+.n4-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--n4-shadow-gold);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* ---------- section headings ---------- */
+.n4-section-title {
+  text-align: center;
+  color: var(--n4-gold);
+  font-size: 1.7rem;
+  margin: 0 0 0.4rem;
+}
+
+.n4-section-sub {
+  text-align: center;
+  color: var(--n4-muted);
+  margin: 0 0 2rem;
+  font-size: 0.98rem;
+}
+
+.n4-divider {
+  width: 72px;
+  height: 4px;
+  margin: 0 auto 1.6rem;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--n4-gold), var(--n4-red));
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.35);
+}
+
+/* ---------- scroll reveal (progressive enhancement) ----------
+   site.js adds .js-reveal to <html> only when IntersectionObserver
+   exists, so content is never hidden without JS. */
+.js-reveal .n4-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s var(--n4-ease),
+    transform 0.7s var(--n4-ease);
+  transition-delay: var(--n4d, 0s);
+  will-change: opacity, transform;
+}
+
+.js-reveal .n4-reveal.n4-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- back-to-top ---------- */
+.n4-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--n4-gold-border);
+  background: linear-gradient(135deg, var(--n4-gold), var(--n4-gold-deep));
+  color: #0A0A0A;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.35);
+  transition: transform 0.25s var(--n4-ease), box-shadow 0.25s;
+  z-index: 950;
+}
+
+.n4-top:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5); }
+.n4-top.show { display: inline-flex; }
+
+/* ---------- keyframes ---------- */
+@keyframes n4-shine {
+  0% { left: -80%; }
+  55% { left: 130%; }
+  100% { left: 130%; }
+}
+
+@keyframes n4-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes n4-fade-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes n4-pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.45); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 215, 0, 0); }
+}
+
+@keyframes n4-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .n4-reveal { opacity: 1; transform: none; transition: none; }
+  .n4-btn-gold::after { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 560px) {
+  .n4-subheader { padding: 10px 12px; }
+  .n4-back { font-size: 0.85rem; padding: 7px 12px; }
+  .n4-brand { font-size: 0.95rem; }
+  .n4-brand img { width: 28px; height: 28px; }
+  .n4-top { right: 16px; bottom: 16px; width: 46px; height: 46px; }
+}

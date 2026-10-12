@@ -1,65 +1,65 @@
-/* Dark Theme Base Styles */
-:root {
-    --primary-color: #3b82f6;
-    --secondary-color: #2563eb;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --error-color: #ef4444;
-    --text-color: #e5e7eb;
-    --text-secondary: #9ca3af;
-    --bg-dark: #111827;
-    --bg-darker: #0f172a;
-    --bg-card: #1e293b;
-    --border-color: #334155;
-    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
+/* ============================================================
+ * N4 VIP Login Guide — gold/black theme (matches main site)
+ * Tokens come from /theme.css (linked before this file).
+ * ============================================================ */
 
 body {
-    font-family: 'Noto Sans Myanmar', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-color);
-    line-height: 1.6;
+    font-family: var(--n4-font);
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 215, 0, 0.07), transparent),
+        var(--n4-black);
+    color: var(--n4-text);
+    line-height: 1.7;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 920px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem;
     position: relative;
 }
 
-/* Header Styles */
+/* ---------- header ---------- */
 header {
     text-align: center;
     margin-bottom: 2.5rem;
     position: relative;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 700;
-    color: var(--primary-color);
     margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, var(--n4-gold), #ff9d3c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 2px 10px rgba(255, 215, 0, 0.25));
 }
 
 header h1 span {
     display: block;
-    font-size: 1.5rem;
-    color: var(--text-color);
+    font-size: 1.4rem;
     font-weight: 600;
+    background: none;
+    -webkit-text-fill-color: var(--n4-text);
+    color: var(--n4-text);
+    filter: none;
+    margin-top: 0.3rem;
 }
 
 .header-decoration {
     height: 4px;
-    width: 80px;
-    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
-    margin: 0.5rem auto 1.5rem;
+    width: 90px;
+    background: linear-gradient(90deg, var(--n4-gold), var(--n4-red));
+    margin: 0.8rem auto 1.5rem;
     border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 12px rgba(255, 215, 0, 0.4);
 }
 
 .header-links {
@@ -74,278 +74,305 @@ header h1 span {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: rgba(59, 130, 246, 0.1);
-    color: var(--primary-color);
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
+    background: var(--n4-gold-soft);
+    color: var(--n4-gold);
+    padding: 0.65rem 1.25rem;
+    border-radius: 999px;
     text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    font-weight: 600;
+    transition: transform 0.25s var(--n4-ease), box-shadow 0.25s, background 0.25s;
+    border: 1px solid var(--n4-gold-border);
 }
 
 .telegram-link:hover {
-    background-color: rgba(59, 130, 246, 0.2);
+    background: rgba(255, 215, 0, 0.2);
     transform: translateY(-2px);
+    box-shadow: var(--n4-shadow-gold);
 }
 
 .pricing-btn {
     display: inline-flex;
     align-items: center;
-    background-color: var(--success-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
+    background: linear-gradient(135deg, var(--n4-gold), var(--n4-gold-deep));
+    color: #0A0A0A;
+    padding: 0.65rem 1.4rem;
+    border-radius: 999px;
     text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    transition: transform 0.25s var(--n4-ease), box-shadow 0.25s;
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.3);
 }
 
 .pricing-btn:hover {
-    background-color: #0ea674;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 26px rgba(255, 215, 0, 0.45);
 }
 
-/* Intro Section */
+/* ---------- intro ---------- */
 .intro {
-    background-color: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--card-shadow);
-    margin-bottom: 2rem;
+    background: linear-gradient(160deg, var(--n4-surface-2), var(--n4-surface));
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--n4-radius);
+    box-shadow: var(--n4-shadow);
+    margin-bottom: 2.25rem;
     text-align: center;
-    border-left: 4px solid var(--primary-color);
-    color: var(--text-secondary);
+    border: 1px solid var(--n4-gold-border);
+    border-left: 4px solid var(--n4-gold);
+    color: var(--n4-muted);
+    font-size: 1.02rem;
 }
 
-/* Tutorial Steps */
+/* ---------- tutorial steps ---------- */
 .tutorial-section {
     margin-bottom: 3rem;
+    position: relative;
 }
 
 .step {
-    background-color: var(--bg-card);
-    border-radius: 0.5rem;
-    box-shadow: var(--card-shadow);
-    margin-bottom: 1.5rem;
+    background: linear-gradient(160deg, var(--n4-surface-2), var(--n4-surface));
+    border-radius: var(--n4-radius);
+    box-shadow: var(--n4-shadow);
+    margin-bottom: 1.75rem;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-color);
+    transition: transform 0.3s var(--n4-ease), box-shadow 0.3s, border-color 0.3s;
+    border: 1px solid rgba(255, 215, 0, 0.16);
+    position: relative;
 }
 
 .step:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+    box-shadow: var(--n4-shadow-gold);
+    border-color: rgba(255, 215, 0, 0.4);
 }
 
 .step-header {
     display: flex;
     align-items: center;
-    padding: 1rem 1.5rem;
-    background-color: rgba(30, 41, 59, 0.5);
-    border-bottom: 1px solid var(--border-color);
+    padding: 1.1rem 1.5rem;
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), transparent);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.14);
 }
 
 .step-number {
-    background-color: var(--primary-color);
-    color: white;
-    width: 32px;
-    height: 32px;
+    background: linear-gradient(135deg, var(--n4-gold), var(--n4-gold-deep));
+    color: #0A0A0A;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
+    font-size: 1.1rem;
     margin-right: 1rem;
     flex-shrink: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+    transition: transform 0.3s var(--n4-ease);
+}
+
+.step:hover .step-number {
+    transform: scale(1.1) rotate(-6deg);
 }
 
 .step h2 {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0;
-    color: var(--text-color);
+    color: var(--n4-text);
 }
 
 .step-content {
     padding: 1.5rem;
 }
 
-/* Vertical Image Stack */
+/* image stack */
 .image-stack {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
 
 .step-image {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     height: auto;
-    border-radius: 0.375rem;
-    border: 1px solid var(--border-color);
-    margin: 0 auto;
+    border-radius: var(--n4-radius-sm);
+    border: 1px solid var(--n4-gold-border);
     display: block;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
     background-color: #000;
+    transition: transform 0.35s var(--n4-ease), box-shadow 0.35s;
+    cursor: zoom-in;
+}
+
+.step-image:hover {
+    transform: scale(1.04);
+    box-shadow: var(--n4-shadow-gold);
 }
 
 .step-instructions {
     flex: 1;
+    min-width: 260px;
 }
 
 .step-instructions p {
     margin-bottom: 1rem;
     font-size: 1rem;
-    color: var(--text-color);
+    color: var(--n4-text);
 }
 
 .step-instructions strong {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.step-instructions em {
-    color: var(--success-color);
-    font-style: normal;
-    font-weight: 500;
+    color: var(--n4-gold);
+    font-weight: 700;
 }
 
 .step-instructions ul {
-    padding-left: 1.25rem;
+    padding-left: 0;
     margin: 0.75rem 0;
-    color: var(--text-secondary);
+    color: var(--n4-muted);
+    list-style: none;
 }
 
 .step-instructions li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     position: relative;
+    padding-left: 1.6em;
 }
 
 .step-instructions li::before {
-    content: "•";
-    color: var(--primary-color);
+    content: "✓";
+    color: #0A0A0A;
+    background: var(--n4-gold);
     font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.15em;
+    height: 1.15em;
+    border-radius: 50%;
+    font-size: 0.75em;
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
 }
 
-/* Tips Section */
+/* ---------- tips ---------- */
 .tips {
     margin: 3rem 0;
 }
 
 .tips h3 {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    margin-bottom: 1.75rem;
+    color: var(--n4-gold);
     position: relative;
 }
 
 .tips h3::after {
     content: "";
     display: block;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
-    margin: 0.5rem auto 0;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--n4-gold), var(--n4-red));
+    margin: 0.6rem auto 0;
     border-radius: 3px;
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.35);
 }
 
 .tip-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    gap: 1.1rem;
 }
 
 .tip-card {
-    background-color: var(--bg-card);
-    padding: 1.25rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--card-shadow);
+    background: linear-gradient(160deg, var(--n4-surface-2), var(--n4-surface));
+    padding: 1.35rem;
+    border-radius: var(--n4-radius);
+    box-shadow: var(--n4-shadow);
     display: flex;
     align-items: flex-start;
-    border-top: 3px solid var(--warning-color);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.16);
+    border-top: 3px solid var(--n4-gold);
+    transition: transform 0.3s var(--n4-ease), box-shadow 0.3s;
 }
 
 .tip-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    border-top: 3px solid var(--error-color);
+    box-shadow: var(--n4-shadow-gold);
 }
 
 .tip-icon {
-    background-color: var(--warning-color);
-    color: var(--bg-dark);
-    width: 24px;
-    height: 24px;
+    background: linear-gradient(135deg, var(--n4-gold), var(--n4-gold-deep));
+    color: #0A0A0A;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    margin-right: 0.75rem;
+    margin-right: 0.85rem;
     flex-shrink: 0;
-    font-size: 0.875rem;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.35);
 }
 
 .tip-card p {
     margin: 0;
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
+    font-size: 0.95rem;
+    color: var(--n4-muted);
+    line-height: 1.65;
 }
 
-/* Footer */
+/* ---------- footer ---------- */
 footer {
     text-align: center;
-    padding: 1.5rem 0;
-    color: var(--text-secondary);
+    padding: 2rem 0 1rem;
+    color: var(--n4-faint);
     font-size: 0.875rem;
     margin-top: 2rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid rgba(255, 215, 0, 0.14);
 }
 
 footer a {
-    color: var(--primary-color);
+    color: var(--n4-gold);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 footer a:hover {
     text-decoration: underline;
 }
 
-/* Back to Top Button */
+/* ---------- back to top (kept for HTML compat; theme styles it) ---------- */
 #backToTop {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
+    background: linear-gradient(135deg, var(--n4-gold), var(--n4-gold-deep));
+    color: #0A0A0A;
+    border: 1px solid var(--n4-gold-border);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     cursor: pointer;
     display: none;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.35);
+    transition: transform 0.25s var(--n4-ease), box-shadow 0.25s;
     z-index: 99;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #backToTop:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5);
 }
 
 #backToTop svg {
@@ -353,61 +380,21 @@ footer a:hover {
     height: 24px;
 }
 
-/* Responsive Design */
+/* ---------- responsive ---------- */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.75rem;
-    }
-    
-    header h1 span {
-        font-size: 1.25rem;
-    }
-    
-    .step-content {
-        padding: 1rem;
-    }
-    
-    .tip-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .header-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .telegram-link, .pricing-btn {
-        width: 100%;
-        justify-content: center;
-    }
+    header h1 { font-size: 1.7rem; }
+    header h1 span { font-size: 1.15rem; }
+    .step-content { padding: 1.1rem; }
+    .tip-cards { grid-template-columns: 1fr; }
+    .header-links { flex-direction: column; align-items: stretch; }
+    .telegram-link, .pricing-btn { justify-content: center; }
+    .step-image { max-width: 240px; }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0.5rem;
-    }
-    
-    header h1 {
-        font-size: 1.5rem;
-    }
-    
-    .step-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .step-number {
-        margin-bottom: 0.5rem;
-    }
-    
-    .step-instructions ul {
-        padding-left: 1rem;
-    }
-
-    #backToTop {
-        width: 40px;
-        height: 40px;
-        bottom: 20px;
-        right: 20px;
-    }
+    .container { padding: 0.75rem 0.75rem 1.5rem; }
+    header h1 { font-size: 1.45rem; }
+    .step-header { padding: 1rem; }
+    .step-number { width: 34px; height: 34px; font-size: 1rem; }
+    #backToTop { width: 44px; height: 44px; bottom: 20px; right: 20px; }
 }
