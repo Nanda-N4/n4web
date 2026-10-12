@@ -25,35 +25,35 @@
         <div class="info-box">
             <div class="info-item">
                 <span class="info-label">IP Address:</span>
-                <span class="info-value" id="ip"><span class="loading-dots"></span></span> 🌐
+                <span class="info-value" id="ip"><span class="n4-skel-bar" style="width:52%"></span></span> 🌐
             </div>
             <div class="info-item">
                 <span class="info-label">Location:</span>
-                <span class="info-value" id="location"><span class="loading-dots"></span></span>
+                <span class="info-value" id="location"><span class="n4-skel-bar" style="width:38%"></span></span>
                 <span class="flag" id="location-flag"></span>
             </div>
             <div class="info-item">
                 <span class="info-label">Country:</span>
-                <span class="info-value" id="country"><span class="loading-dots"></span></span>
+                <span class="info-value" id="country"><span class="n4-skel-bar" style="width:38%"></span></span>
                 <span class="flag" id="country-flag"></span>
             </div>
             <div class="info-item">
                 <span class="info-label">Region:</span>
-                <span class="info-value" id="region"><span class="loading-dots"></span></span>
+                <span class="info-value" id="region"><span class="n4-skel-bar" style="width:38%"></span></span>
                 <span class="flag" id="region-flag"></span>
             </div>
             <div class="info-item">
                 <span class="info-label">City:</span>
-                <span class="info-value" id="city"><span class="loading-dots"></span></span>
+                <span class="info-value" id="city"><span class="n4-skel-bar" style="width:38%"></span></span>
                 <span class="flag" id="city-flag"></span>
             </div>
             <div class="info-item">
                 <span class="info-label">ISP:</span>
-                <span class="info-value" id="isp"><span class="loading-dots"></span></span> 💻
+                <span class="info-value" id="isp"><span class="n4-skel-bar" style="width:38%"></span></span> 💻
             </div>
             <div class="info-item">
                 <span class="info-label">Datacenter:</span>
-                <span class="info-value" id="datacenter"><span class="loading-dots"></span></span> 🖥️
+                <span class="info-value" id="datacenter"><span class="n4-skel-bar" style="width:38%"></span></span> 🖥️
             </div>
             <div class="info-item">
                 <span class="info-label">Map:</span>
@@ -100,9 +100,8 @@
         // Function to show loading state
         function showLoading() {
             document.querySelectorAll('.info-value').forEach(el => {
-                if (!el.querySelector('.loading-dots')) {
-                    el.innerHTML = '<span class="loading-dots"></span>';
-                }
+                var w = 35 + Math.floor(Math.random() * 35);
+                el.innerHTML = '<span class="n4-skel-bar" style="width:' + w + '%"></span>';
             });
             document.getElementById('map').innerHTML = '<div class="map-loading"><span class="loading-dots"></span></div>';
         }

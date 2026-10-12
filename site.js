@@ -80,10 +80,25 @@
     onScroll();
   }
 
+  /* ---------- 4) image skeletons ---------- */
+  function initImgSkel() {
+    var imgs = document.querySelectorAll("img.n4-skel");
+    imgs.forEach(function (img) {
+      function done() { img.classList.add("n4-loaded"); }
+      if (img.complete && img.naturalWidth > 0) {
+        done();
+      } else {
+        img.addEventListener("load", done);
+        img.addEventListener("error", done); // broken image: stop shimmer too
+      }
+    });
+  }
+
   function boot() {
     applyDomain();
     initReveal();
     initTop();
+    initImgSkel();
   }
 
   if (document.readyState === "loading") {

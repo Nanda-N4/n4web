@@ -285,3 +285,38 @@ body.n4 {
   .n4-brand img { width: 28px; height: 28px; }
   .n4-top { right: 16px; bottom: 16px; width: 46px; height: 46px; }
 }
+
+/* ---------- skeleton loading ----------
+   Slow connections: shimmering placeholders keep the layout
+   alive while images / data load. */
+@keyframes n4-skel-shimmer {
+  from { background-position: 180% 0; }
+  to { background-position: -80% 0; }
+}
+
+/* image skeleton — shimmering backdrop until the image paints */
+img.n4-skel {
+  background: linear-gradient(100deg, #141414 30%, #262626 50%, #141414 70%);
+  background-size: 200% 100%;
+  animation: n4-skel-shimmer 1.5s linear infinite;
+}
+
+img.n4-skel.n4-loaded {
+  animation: none;
+  background: #000;
+}
+
+/* text/data skeleton bar */
+.n4-skel-bar {
+  display: inline-block;
+  height: 0.95em;
+  border-radius: 6px;
+  vertical-align: middle;
+  background: linear-gradient(100deg, #1b1b1b 30%, #2c2c2c 50%, #1b1b1b 70%);
+  background-size: 200% 100%;
+  animation: n4-skel-shimmer 1.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img.n4-skel, .n4-skel-bar { animation: none; }
+}
