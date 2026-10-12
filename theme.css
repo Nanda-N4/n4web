@@ -138,19 +138,6 @@ body.n4 {
 
 .n4-btn-gold:active { transform: translateY(0) scale(0.99); }
 
-/* shine sweep on gold buttons */
-.n4-btn-gold::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -80%;
-  width: 55%;
-  height: 100%;
-  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-  transform: skewX(-20deg);
-  animation: n4-shine 3.2s ease-in-out infinite;
-}
-
 .n4-btn-ghost {
   background: var(--n4-gold-soft);
   color: var(--n4-gold);
@@ -207,10 +194,10 @@ body.n4 {
    exists, so content is never hidden without JS. */
 .js-reveal .n4-reveal {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(18px);
   transition:
-    opacity 0.7s var(--n4-ease),
-    transform 0.7s var(--n4-ease);
+    opacity 0.55s var(--n4-ease),
+    transform 0.55s var(--n4-ease);
   transition-delay: var(--n4d, 0s);
   will-change: opacity, transform;
 }
@@ -218,6 +205,19 @@ body.n4 {
 .js-reveal .n4-reveal.n4-in {
   opacity: 1;
   transform: none;
+}
+
+/* fade-only reveal — for elements that already have their own
+   transform (e.g. scaled cards), so nothing jumps */
+.js-reveal .n4-reveal-fade {
+  opacity: 0;
+  transition: opacity 0.55s var(--n4-ease);
+  transition-delay: var(--n4d, 0s);
+  will-change: opacity;
+}
+
+.js-reveal .n4-reveal-fade.n4-in {
+  opacity: 1;
 }
 
 /* ---------- back-to-top ---------- */
@@ -245,12 +245,6 @@ body.n4 {
 .n4-top.show { display: inline-flex; }
 
 /* ---------- keyframes ---------- */
-@keyframes n4-shine {
-  0% { left: -80%; }
-  55% { left: 130%; }
-  100% { left: 130%; }
-}
-
 @keyframes n4-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -259,11 +253,6 @@ body.n4 {
 @keyframes n4-fade-up {
   from { opacity: 0; transform: translateY(22px); }
   to { opacity: 1; transform: none; }
-}
-
-@keyframes n4-pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.45); }
-  50% { box-shadow: 0 0 0 12px rgba(255, 215, 0, 0); }
 }
 
 @keyframes n4-spin {

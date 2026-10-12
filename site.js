@@ -34,7 +34,8 @@
     if (!("IntersectionObserver" in window)) return; // no hiding without IO
     var root = document.documentElement;
     root.classList.add("js-reveal");
-    var els = document.querySelectorAll(".n4-reveal");
+    var SEL = ".n4-reveal, .n4-reveal-fade";
+    var els = document.querySelectorAll(SEL);
     if (!els.length) return;
     function settle(el) {
       // entrance ပြီးရင် reveal class တွေဖြုတ် — page ရဲ့ ကိုယ်ပိုင်
@@ -44,7 +45,7 @@
         if (cleaned) return;
         cleaned = true;
         el.removeEventListener("transitionend", onEnd);
-        el.classList.remove("n4-reveal", "n4-in");
+        el.classList.remove("n4-reveal", "n4-reveal-fade", "n4-in");
         el.style.removeProperty("--n4d");
       }
       function onEnd(ev) {
@@ -63,6 +64,17 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     els.forEach(function (el) { io.observe(el); });
+    // safety net: viewport ထဲက စာသားတွေ ဘယ်တော့မှ ပျောက်မနေစေရ
+    setTimeout(function () {
+      document.querySelectorAll(SEL + ":not(.n4-in)").forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          el.classList.add("n4-in");
+          io.unobserve(el);
+          settle(el);
+        }
+      });
+    }, 2500);
   }
 
   /* ---------- 3) back-to-top ---------- */

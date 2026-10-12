@@ -534,18 +534,7 @@ body {
 }
 
 /* ===== N4 PRO POLISH (unified theme pass) ===== */
-.download-btn { position: relative; overflow: hidden; }
-.download-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -80%;
-  width: 55%;
-  height: 100%;
-  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.5), transparent);
-  transform: skewX(-20deg);
-  animation: n4-shine 3.4s ease-in-out infinite;
-}
+
 .logo-container .site-logo { animation: n4-float 4s ease-in-out infinite; }
 .grid-item { border-top: 2px solid transparent; }
 .grid-item:hover { border-top-color: var(--primary-gold); }
