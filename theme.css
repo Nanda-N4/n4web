@@ -45,10 +45,16 @@ body.n4 {
   color: var(--n4-text);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  overflow-x: clip; /* safety net: no sideways page panning */
 }
 
-.n4 a { color: var(--n4-gold); }
+/* content links gold — buttons keep their own text colors */
+.n4 a:not(.btn):not(.download-btn):not(.pricing-btn):not(.n4-back):not(.footer-link):not(.header-logo) { color: var(--n4-gold); }
 .n4 ::selection { background: var(--n4-gold); color: #0A0A0A; }
+
+/* consistent box model everywhere — kills horizontal page-shift bugs */
+*, *::before, *::after { box-sizing: border-box; }
 
 /* ---------- slim sub-page header ---------- */
 .n4-subheader {
